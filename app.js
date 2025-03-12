@@ -10,9 +10,11 @@ import cookieParser from "cookie-parser";
 import fileUpload from "express-fileupload";
 
 // Load environment variables
+const app = express();
+app.use(cookieParser());
 dotenv.config({ path: "./config/.env" });
 
-const app = express();
+
 
 // ✅ Improved CORS setup
 const allowedOrigins = [
@@ -30,7 +32,7 @@ app.use(
         callback(new Error("Not allowed by CORS"));
       }
     },
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    methods: ["GET", "POST", "PUT", "DELETE","OPTIONS"],
     credentials: true,
     allowedHeaders: ["Content-Type", "Authorization"],
   })
