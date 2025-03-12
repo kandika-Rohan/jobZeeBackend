@@ -16,7 +16,8 @@ const app = express();
 
 // ✅ Improved CORS setup
 const allowedOrigins = [
-  "https://job-seeking-application-git-master-rohans-projects-8a22cb86.vercel.app"
+  "https://job-seeking-application-git-master-rohans-projects-8a22cb86.vercel.app",
+  "https://job-seeking-application-6973vbv4f-rohans-projects-8a22cb86.vercel.app"
 ];
 
 app.use(
