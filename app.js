@@ -17,15 +17,22 @@ const app = express();
 // ✅ Improved CORS setup
 const allowedOrigins = [
   "https://job-seeking-application-git-master-rohans-projects-8a22cb86.vercel.app",
-  "https://job-seeking-application-6973vbv4f-rohans-projects-8a22cb86.vercel.app"
+  "https://job-seeking-application-6973vbv4f-rohans-projects-8a22cb86.vercel.app",
+  "http://localhost:5173"
 ];
 
 app.use(
   cors({
-    origin: allowedOrigins,
-    methods: ["GET", "POST", "DELETE", "PUT", "OPTIONS"], // ✅ Explicitly allow OPTIONS for preflight
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
-    allowedHeaders: ["Content-Type", "Authorization"], // ✅ Add necessary headers
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
