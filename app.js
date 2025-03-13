@@ -18,7 +18,7 @@ config({ path: "./config/.env" });
 
 app.use(
   cors({
-    origin: "https://job-seeking-application-git-master-rohans-projects-8a22cb86.vercel.app",
+    origin: "https://job-seeking-application-five.vercel.app",
     method: ["GET", "POST", "DELETE", "PUT"],
     credentials: true,
   })
