@@ -16,7 +16,7 @@
 // };
 export const sendToken = (user, statusCode, res, message) => {
   const token = user.getJWTToken();
-  console.log("Generated JWT Token:", token);
+  
 
   const options = {
     expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // 7 days
